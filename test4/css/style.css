@@ -10,7 +10,7 @@ body {
     width: 60px;
     height: 60px;
 }
-
+ 
 .header a:hover {
     color: red;
 }
@@ -75,6 +75,10 @@ input {
     width: 200px;
 }
 
+a:hover img {
+    border: 4px solid transparent;
+}
+
 img {
     width: 200px;
     height: 200px;
@@ -83,4 +87,26 @@ img {
 .type-color:focus {
     background: rgb(104, 173, 230);
     color: rgb(192, 79, 34);
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    color: rgb(96, 96, 228);
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-style: italic;
+    border: 1px solid black;
+}
+
+.tr-bold {
+    font-weight: 700;
+}
+
+.letter-style:first-letter {
+    color: teal;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 700;
 }
