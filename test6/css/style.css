@@ -1,0 +1,39 @@
+body {
+	margin: 0;
+}
+
+.header {
+	height: 700px;
+	background-color: #abeafa;
+}
+
+.header__inside {
+	width: 1170px;
+	height: inherit;
+	background: rgb(214, 100, 237);
+	margin: 0 auto;
+	position: relative;
+}
+
+.header__logo {
+	display: block;
+	background: url(../images/surfhouseLogo.png) no-repeat;
+	width: 125px;
+	height: 111px;
+	position: absolute;
+	left: 69px;
+	top: 24px;
+}
+
+.content {
+	background: darkkhaki;
+	min-height: 900px; /*это в конце удалить */
+}
+
+.content__inside {
+	width: 1170px;
+	min-height: inherit; /*это в конце удалить */
+	background: darkolivegreen;
+	margin: 0 auto;
+}
+
