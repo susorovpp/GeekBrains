@@ -1,0 +1,13 @@
+body {
+    font-family: 'Montserrat', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.navbar-brand {
+    font-size: 15px;
+    color: #ffffff;
+}
+.nav-link {
+    color: #ffffff;
+}
+.navbar-dark {
+    color: #ffffff;
+}
