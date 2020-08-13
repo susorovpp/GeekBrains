@@ -1,0 +1,236 @@
+body {
+    background-color: #f8f8f8;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+/* Общие */
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.header {
+    height: 150px;
+    background-image: url(../images/water-bg.jpg);
+    background-size: contain;
+    position: relative;
+}
+
+.header__logo {
+    height: 70px;
+    margin: 70px 25px 0 25px;
+    float: left;
+}
+
+.header__shop-name {
+    font-weight: 700;
+    font-size: 20px;
+    font-style: italic;
+    position: absolute;
+    left: 120px;
+    bottom: 30px;
+}
+
+.header__menu {
+    position: absolute;
+    bottom: 16px;
+    right: 0;
+}
+
+.header__menu li {
+    padding: 0 10px;
+    display: inline-block;
+}
+
+.header__menu li a {
+    text-decoration: none;
+    columns: #000000;;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 20px;
+}
+
+.header__menu:hover {
+    color: red;
+}
+
+/* Главное меню */
+
+.content__title {
+    font-size: 20px;
+}
+
+.content__text {
+    font-size: 15px;
+}
+
+.footer {
+    height: 100px;
+    background-color: rgba(76, 175, 233, 0.486);
+}
+
+.footer__properties {
+    float: right;
+    margin: 15px 15px 0 0;
+}
+
+/* Каталог */
+
+.content__container {
+    overflow: hidden;
+    margin: 15px auto 25px auto;
+}
+
+.content__product {
+    box-sizing: border-box;
+    float: left;
+    width: 30%;
+    height: 450px;
+    border: rgba(128, 128, 128, 0.377) solid 2px;
+    margin-right: 5%;
+    margin-top: 15px;
+    position: relative;
+    background-color: #fff;
+    padding: 5px;
+}
+
+.content__product:nth-child(3n) {
+    margin-right: 0;
+}
+
+.content__product:nth-child(-n+3) {
+    margin-top: 0;
+}
+
+.content__product-name {
+    font-weight: 700;
+}
+
+.content__product-image {
+    width: 100%;
+}
+
+.content__product-description {
+    text-align: justify;
+}
+
+.content__product-price {
+    font-weight: 700;
+    position: absolute;
+    bottom: 0;
+}
+
+.content__product-detail {
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+/* Страница товара */
+
+.content__product-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
+.content__subtitle {
+    color: black;
+    font-size: 18px;
+    font-weight: 400;
+    background-color: #eaeaea;
+}
+
+.bottom-subtitle {
+    position: absolute;
+    left: 220px;
+    margin-top: 0;
+}
+
+.content__button{
+    box-sizing: border-box;
+    width: 80px;
+    height: 50px;
+    border: rgb(100, 148, 237) solid 2px;
+    border-radius: 15px;
+    background-color: rgba(100, 148, 237, 0.356);
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+    text-align: center;
+    line-height: 45px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.content__button:focus {
+    background-color: rgba(100, 237, 123, 0.356);
+    border: rgba(100, 237, 123, 0.356) solid 2px;
+    color: darkgreen;
+}
+
+.content__button:hover {
+    background-color: rgba(237, 109, 100, 0.356);
+    border: rgba(237, 109, 100, 0.356) solid 2px;
+    color: crimson;
+}
+
+.content__image {
+    width: 200px;
+    height: 200px;
+}
+
+.content__image:hover {
+    border: 4px solid transparent;
+}
+
+.content__description-short {
+    position: absolute;
+    left: 220px;
+    top: 30px;
+    color: #707070;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 16px;
+}
+
+.content__description-long {
+    color: #707070;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: left;
+}
+
+.letter-style:first-letter {
+    color: blue;
+    font-size: 20px;
+}
+
+.border {
+    border: 4px solid rgb(112, 110, 110);
+    width: 200px;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+td {
+    color: rgb(96, 96, 228);
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-style: italic;
+    border: 1px solid black;
+}
+
+.tr-bold {
+    font-weight: 700;
+}
+
+/* Контакты */
+
+.content__data_bold {
+    font-weight: 700;
+}
