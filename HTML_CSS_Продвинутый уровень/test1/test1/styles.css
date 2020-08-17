@@ -54,6 +54,13 @@ body {
 .button-site {
     background-color: #f16d7f;
     padding: 11px 19px;
+    border: 1px solid transparent;
+}
+
+.button-site:hover {
+    color: #f16d7f;
+    background-color: #ffffff;
+    border: 1px solid #f16d7f;
 }
 
 .my-acc {
@@ -61,6 +68,12 @@ body {
     font-size: 15px;
     font-weight: 400;
     text-decoration: none;
+}
+
+.my-acc-icon {
+    margin-left: 8px;
+    font-size: 14px;
+    font-weight: 400;
 }
 
 .menu {
@@ -130,13 +143,12 @@ body {
 .header-input {
     width: 317px;
     height: 38px;
-
     border: 1px solid #e6e6e6;
     background-color: #ffffff;
     color: #a4a4a4;
     font-size: 14px;
     font-weight: 300;
-    padding-left: 15px;
+    padding: 0 15px;
     font-family: 'Lato', sans-serif;
 }
 
@@ -157,6 +169,10 @@ body {
     letter-spacing: 0.35px;
 }
 
+.button-form:hover {
+    background: #fff;
+}
+
 .button-icon {
     color: #a4a4a4;
     font-size: 14px;
@@ -168,6 +184,10 @@ body {
     border: 1px solid #e6e6e6;
     border-left: none;
     background-color: #ffffff;
+}
+
+.button-search:hover {
+    background: #f8f8f8;
 }
 
 .fa-search {}
@@ -260,91 +280,7 @@ body {
     margin-top: 16px;
 }
 
-.fetured-wrap {
-    margin-top: 59px;
-    margin-bottom: 70px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.fetured-item {
-    font-weight: 700;
-    background-color: #ffffff;
-    position: relative;
-}
-
-.fetured-item:nth-child(n+5) {
-    margin-top: 39px;
-}
-
-.fetured-item:hover {
-    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16);
-}
-
-.fetured-item:hover .button-add {
-    display: flex;
-}
-
-.fetured-item:hover::before {
-    content: '';
-}
-
-.fetured-item::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 261px;
-    height: 279px;
-    background-color: rgba(58, 56, 56, 0.8);
-
-}
-
-.fetured-item__image {
-    width: 261px;
-    height: 280px;
-}
-
-.fetured-item__name {
-    margin-top: 20px;
-    padding-left: 15px;
-    color: #222222;
-    font-size: 13px;
-    font-weight: 400;
-    text-transform: uppercase;
-}
-
-.fetured-item__price {
-    margin: 17px 0 21px 0;
-    padding-left: 15px;
-    color: #f16d7f;
-    font-size: 16px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.button-add {
-    position: absolute;
-    top: 98px;
-    left: 70px;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-    text-decoration: none;
-}
-
-.button-add__image {
-    margin-right: 8px;
-    color: #ffffff;
-}
-
-.button-add_name {
-    font-size: 13px;
-    font-weight: 700;
-}
+/*Кнопка внизу товаров*/
 
 .all-products {
     color: #ffffff;
@@ -365,12 +301,90 @@ body {
 
 .browse-icon {
     margin-left: 9px;
-font-size: 15px;
-font-weight: 400;
+    font-size: 15px;
+    font-weight: 400;
 }
 
-.my-acc-icon {
-    margin-left: 8px;
-font-size: 14px;
-font-weight: 400;
+/*Блок с товарами*/
+
+.box-product {
+    margin: 60px 0 60px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.item {
+    width: 263px;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.item:hover {
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16);
+}
+
+.item:hover .box-add {
+    display: flex;
+}
+
+.product-img {
+    width: 100%;
+}
+
+.item:hover .product-img {
+    filter: brightness(0.3);
+}
+
+.product {
+    width: 263px;
+    display: block;
+    text-decoration: none;
+}
+
+.product-text-box {
+    padding: 20px 15px;
+}
+
+.product-text {
+    color: #222222;
+    font-size: 13px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 17px;
+}
+
+.product-price {
+    color: #f16d7f;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.add {
+    border: 1px solid #ffffff;
+    padding: 8px 12px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.add:hover {
+    box-shadow: 0 0 10px #ffffff
+}
+
+.box-add {
+    position: absolute;
+    top: 98px;
+    display: none;
+    justify-content: center;
+    width: 100%;
+}
+
+.add-icon {
+    margin-right: 8px;
 }
