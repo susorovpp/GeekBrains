@@ -187,6 +187,7 @@
 .button_red {
     background-color: #f16d7f;
     color: #ffffff;
+    border: 1px solid transparent;
 }
 
 .button_red:hover {
@@ -205,8 +206,26 @@
     padding: 10px 0;
 }
 
+.basket-link {
+    position: relative;
+}
+
 .icon-basket {
     margin-right: 26px;
+}
+
+.icon-quantity {
+    background: url(images/Ellipse.svg) no-repeat;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    position: absolute;
+    left: 24px;
+    top: -19px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    padding-top: 1px;
 }
 
 .dropdown-basket {
@@ -379,6 +398,7 @@
     width: 846px;
     height: 287px;
     justify-content: space-between;
+    z-index: 100;
 }
 
 .menu-popup:before {
@@ -616,7 +636,7 @@
 }
 
 .product-box__img {
-    width: 261px;
+    width: 100%;
     height: 279px;
 }
 
@@ -894,6 +914,10 @@
     background-color: #f16d7f;
 }
 
+.nav__selector:hover {
+    background-color: #f16d7f
+}
+
 /*Блок footer*/
 
 .footer {
@@ -1092,6 +1116,14 @@
     align-items: center;
 }
 
+.type-of-collection {
+    margin-top: 73px;
+    color: #f16d7f;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
 .pagination_nav-long {
     width: 147px;
     margin-top: 14px;
@@ -1108,6 +1140,11 @@
     background-color: #d6d6d6;
     display: inline-block;
     cursor: pointer;
+}
+
+.nav__selector-long:hover {
+    height: 3px;
+    background-color: #ef5b70;
 }
 
 .nav__selector-long_current {
@@ -1139,21 +1176,6 @@
     text-align: center;
 }
 
-/* Откорректировать выпадающие списки---------------------- */
-
-
-
-.type-of-collection {
-    margin-top: 73px;
-    color: #f16d7f;
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-
-
-
 .product-card-info-box {
     margin-top: 22px;
     color: #b9b9b9;
@@ -1178,32 +1200,122 @@
     font-weight: 700;
 }
 
-.arguments-box {
+/* Выпадающие списки */
+
+.choose-box {
     margin-top: 43px;
     padding-top: 63px;
     border-top: 1px solid #eaeaea;
     display: flex;
-    justify-content: space-between;
-    min-width: 537px;
+    justify-content: space-evenly;
+    width: 642px;
 }
 
-.arguments-title {
+.choose__heading {
     color: #2f2f2f;
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
 }
 
-.arguments-dropdown {
-    margin: 16px 0 28px 0;
-    width: 144px;
-    height: 35px;
+.choose__form {
+    margin-top: 16px;
+    padding: 9px 9px 9px 14px;
+    box-sizing: border-box;
     border: 1px solid #eaeaea;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 144px;
+    position: relative;
+}
+
+.choose__form:hover .choose__dropdown {
+    display: block;
+}
+
+.choose__square {
+    width: 12px;
+    height: 12px;
+}
+
+.choose__square_red {
+    background-color: #ef5b70;
+}
+
+.choose__square_yellow {
+    background-color: yellow;
+}
+
+.choose__square_green {
+    background-color: green;
+}
+
+.choose__square_blue {
+    background-color:blue;
+}
+
+.choose__square_pink {
+    background-color:pink;
+}
+
+.choose__current {
+    color: #bcbcbc;
+    font-size: 13px;
+    margin-right: 56px;
+    font-weight: 400;
+}
+
+.choose__current_14 {
+    font-size: 14px;
+}
+
+.icon-angle-down {
+    color: #bcbcbc;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.choose__dropdown {
+    display: none;
+    position: absolute;
+    left: -1px;
+    top: 36px;
+    list-style-type: none;
+    border: 1px solid #eaeaea;
+    background-color: #ffffff;
+    width: 143px;
+}
+
+.choose__dropdown-item {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 9px 9px 9px 14px;
+}
+
+.choose__dropdown-item:hover {
+    background-color: #f8f8f8;
+    cursor: pointer;
+}
+
+.choose__current_dropdown {
+    margin-left: 11px;
+}
+
+.choose__input {
+    border: 1px solid #eaeaea;
+    background-color: #ffffff;
+    padding: 9px 9px 9px 14px;
+    margin-top: 16px;
     outline: none;
     color: #bcbcbc;
-    padding: 5px 15px;
+    font-size: 14px;
+    font-weight: 400;
 }
-/* Конец корректировки */
+
+/* Кнопка Add to Card */
 
 .button_white {
     color: #ef5b70;
@@ -1219,6 +1331,7 @@
     background-repeat: no-repeat;
     background-position: 39% center;
     margin-bottom: 122px;
+    margin-top: 28px;
 }
 
 .button_add-to-card:hover {
@@ -1229,21 +1342,6 @@
 .add-to-card {
     margin-left: 19px;
 }
-
-
-
-
-
-
-/* Сделать завтра */
-
-
-
-
-
-
-
-
 
 /*Block Like-also*/
 
@@ -1265,8 +1363,8 @@
     margin-top: 72px;
 }
 
-.like-also__item {
-
+.like-also__item:hover {
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16);
 }
 
 .like-also__link {
@@ -1291,6 +1389,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 17px;
+    margin-bottom: 21px;
     padding: 0 12px 0 15px;
 }
 

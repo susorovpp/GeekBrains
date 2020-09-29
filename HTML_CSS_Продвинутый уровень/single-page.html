@@ -58,8 +58,9 @@
             </div>
             <div class="header-right">
                 <div class="basket-wrap">
-                    <a href="#">
+                    <a href="#" class="basket-link">
                         <img class="icon-basket" src="images/Forma_1_black.svg" alt="card">
+                        <span class="icon-quantity">5</span>
                     </a>
                     <div class="dropdown-basket">
                         <div class="basket-card">
@@ -289,36 +290,57 @@
                 <div class="product-card-price">
                     $561
                 </div>
-                <div class="arguments-box">
-                    <div class="arguments-item">
-                        <div class="arguments-title">CHOOSE COLOR</div>
-                        <select class="arguments-dropdown" name="" id="" required>
-                            <option value="Red" selected>Red</option>
-                            <option value="Green">Green</option>
-                            <option value="Black">Black</option>
-                            <option value="White">White</option>
-                            <option value="Pink">Pink</option>
-                        </select>
+                <div class="choose-box">
+                    <div class="choose-box__item">
+                        <p class="choose__heading">CHOOSE COLOR</p>
+                        <div class="choose__form">
+                            <div class="choose__square choose__square_red"></div>
+                            <span class="choose__current">Red</span>
+                            <span class="icon-angle-down"><i class="fas fa-angle-down"></i></span>
+                            <ul class="choose__dropdown">
+                                <li class="choose__dropdown-item">
+                                    <div class="choose__square choose__square_yellow"></div>
+                                    <span class="choose__current choose__current_dropdown">Yellow</span>
+                                </li>
+                                <li class="choose__dropdown-item">
+                                    <div class="choose__square choose__square_green"></div>
+                                    <span class="choose__current choose__current_dropdown">Green</span>
+                                </li>
+                                <li class="choose__dropdown-item">
+                                    <div class="choose__square choose__square_blue"></div>
+                                    <span class="choose__current choose__current_dropdown">Blue</span>
+                                </li>
+                                <li class="choose__dropdown-item">
+                                    <div class="choose__square choose__square_pink"></div>
+                                    <span class="choose__current choose__current_dropdown">Pink</span>
+                                </li>
+                            </ul>    
+                        </div>
                     </div>
-                    <div class="arguments-item">
-                        <div class="arguments-title">CHOOSE SIZE</div>
-                        <select class="arguments-dropdown" name="" id="" required>
-                            <option value="XXL" selected>XXL</option>
-                            <option value="XL">XL</option>
-                            <option value="L">L</option>
-                            <option value="M">M</option>
-                            <option value="S">S</option>
-                        </select>
+                    <div class="choose-box__item">
+                        <p class="choose__heading">CHOOSE SIZE</p>
+                        <div class="choose__form">
+                            <span class="choose__current">XXL</span>
+                            <span class="icon-angle-down"><i class="fas fa-angle-down"></i></span>
+                            <ul class="choose__dropdown">
+                                <li class="choose__dropdown-item">
+                                    <span class="choose__current">XL</span>
+                                </li>
+                                <li class="choose__dropdown-item">
+                                    <span class="choose__current">L</span>
+                                </li>
+                                <li class="choose__dropdown-item">
+                                    <span class="choose__current">M</span>
+                                </li>
+                                <li class="choose__dropdown-item">
+                                    <span class="choose__current">S</span>
+                                </li>
+                            </ul>      
+                        </div>
                     </div>
-                    <div class="arguments-item">
-                        <div class="arguments-title">QUANTITY</div>
-                        <select class="arguments-dropdown" name="" id="" required>
-                            <option value="2" selected>2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                        </select>
+                    <div class="choose-box__item">
+                        <p class="choose__heading">QUANTITY</p>
+                        <input class="choose__input" type="number" placeholder="2">  
                     </div>
                 </div>
                 <button class="button button_white button_add-to-card" href="#">
@@ -451,7 +473,7 @@
             <div class="column">
                 <h3>COMPANY</h3>
                 <div class="column-links">
-                    <a href="#" class="column-item">Home</a>
+                    <a href="index.html" class="column-item">Home</a>
                     <a href="#" class="column-item">Shop</a>
                     <a href="#" class="column-item">About</a>
                     <a href="#" class="column-item">How It Works</a>
