@@ -1469,6 +1469,7 @@
   line-height: 25px;
 }
 
+/*-------------------------------*/
 .buttons-wrap {
   margin-top: 44px;
   display: flex;
@@ -1481,5 +1482,144 @@
   text-transform: uppercase;
   padding: 11px 38px;
 }
+
+/*-------------------------------*/
+.forms-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 63px;
+}
+
+/*-------------------------------*/
+.form-box {
+  width: 31.3333333333%;
+}
+
+.form-box__title {
+  color: #222222;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.form-box__form {
+  margin-top: 22px;
+}
+
+.form-box__city {
+  color: #b1b1b1;
+  font-size: 13px;
+  font-weight: 300;
+  padding: 11px 12px 14px 18px;
+  border: 1px solid #eaeaea;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.form-box__city:hover .dropdown-city {
+  display: block;
+}
+
+.icon-arrow-down_grey {
+  color: #b1b1b1;
+}
+
+.dropdown-city {
+  display: none;
+  position: absolute;
+  left: -1px;
+  top: 41px;
+  list-style-type: none;
+  border: 1px solid #eaeaea;
+  background-color: #ffffff;
+  width: 100%;
+  z-index: 100;
+}
+
+.dropdown-city__item {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 9px 9px 9px 14px;
+}
+
+.choose__dropdown-item:hover {
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
+.form-box__input {
+  margin-top: 20px;
+  border: 1px solid #eaeaea;
+  background-color: #ffffff;
+  padding: 12px 5px 12px 14px;
+  outline: none;
+  color: #b1b1b1;
+  font-size: 13px;
+  font-weight: 300;
+  width: 338px;
+}
+
+.form-box__input::placeholder {
+  color: #b1b1b1;
+}
+
+.button_form-box {
+  color: #4a4a4a;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 12px;
+  margin-top: 23px;
+}
+
+/*-------------------------------*/
+.form-box__text {
+  color: #000000;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+/*-------------------------------*/
+.total-wrap {
+  height: 214px;
+  box-sizing: border-box;
+  padding: 40px;
+  background-color: #f5f3f3;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.sub-total {
+  color: #4a4a4a;
+  font-size: 11px;
+  font-weight: 400;
+  margin-bottom: 14px;
+}
+
+.sub-total__span {
+  margin-left: 14px;
+}
+
+.grand-total {
+  color: #222222;
+  font-size: 16px;
+  font-weight: 700;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.grand-total__span {
+  color: #f16d7f;
+  margin-left: 20px;
+}
+
+.button_total-wrap {
+  text-transform: uppercase;
+  margin-top: 17px;
+  padding: 18px 50px;
+}
+
+/*-------------------------------*/
 
 /*# sourceMappingURL=styles.css.map */

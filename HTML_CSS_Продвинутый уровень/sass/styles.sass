@@ -1,3 +1,5 @@
+@import "variables"
+
 *
   margin: 0
   padding: 0
@@ -44,7 +46,7 @@
   margin-right: 12px
 
 .logo__span
-  color: #f16d7f
+  color: $main-color
   font-weight: 700
 
 .header-form
@@ -114,7 +116,7 @@
   text-decoration: none
 
 .inner__menu-link:hover
-  color: #f16d7f
+  color: $main-color
 
 .inner-margin
   margin-top: 16px
@@ -159,14 +161,14 @@
   text-decoration: none
 
 .button_red
-  background-color: #f16d7f
+  background-color: $main-color
   color: #ffffff
   border: 1px solid transparent
 
 .button_red:hover
-  color: #f16d7f
+  color: $main-color
   background-color: #ffffff
-  border: 1px solid #f16d7f
+  border: 1px solid $main-color
   cursor: pointer
 
 .icon-arrow-down
@@ -253,7 +255,7 @@
 
 .basket-card__info
   margin-top: 12px
-  color: #f16d7f
+  color: $main-color
   font-weight: 400
   text-transform: uppercase
 
@@ -277,13 +279,13 @@
   text-transform: uppercase
 
 .button_white
-  color: #f16d7f
+  color: $main-color
   background-color: #ffffff
-  border: 1px solid #f16d7f
+  border: 1px solid $main-color
   outline: none
 
 .button_white:hover
-  background-color: #f16d7f
+  background-color: $main-color
   color: #ffffff
   cursor: pointer
 
@@ -326,7 +328,7 @@
   text-transform: uppercase
 
 .menu__link:hover
-  color: #f16d7f
+  color: $main-color
   text-decoration: underline
 
 .menu-popup
@@ -387,7 +389,7 @@
   text-decoration: none
 
 .menu-popup__link:hover
-  color: #f16d7f
+  color: $main-color
 
 .menu-popup__link_last:hover .menu-popup
   right: 0
@@ -421,7 +423,7 @@
 
 .slider-text
   margin-top: 224px
-  border-left: 12px solid #f16d7f
+  border-left: 12px solid $main-color
   float: left
   padding-left: 12px
 
@@ -441,7 +443,7 @@
   line-height: 28px
 
 .span-fashion
-  color: #f16d7f
+  color: $main-color
 
 /* Блок Categories */
 
@@ -494,7 +496,7 @@
   left: 0
 
 .span-category
-  color: #f16d7f
+  color: $main-color
   font-size: 30px
 
 /* Блок Fetured-items */
@@ -558,7 +560,7 @@
   margin-bottom: 17px
 
 .text-box__price
-  color: #f16d7f
+  color: $main-color
   font-size: 16px
   font-weight: 700
   text-transform: uppercase
@@ -626,7 +628,7 @@
   font-size: 32px
 
 .span-banner
-  color: #f16d7f
+  color: $main-color
 
 .banner-bottom__articles
   padding: 48px 36px
@@ -695,7 +697,7 @@
   line-height: 26px
 
 .subscribe-left__author
-  color: #f16d7f
+  color: $main-color
   font-size: 16px
   font-weight: 700
 
@@ -772,10 +774,10 @@
   cursor: pointer
 
 .nav__selector_current
-  background-color: #f16d7f
+  background-color: $main-color
 
 .nav__selector:hover
-  background-color: #f16d7f
+  background-color: $main-color
 
 /*Блок footer*/
 
@@ -799,7 +801,7 @@
   margin-top: 14px
 
 .column h3
-  color: #f16d7f
+  color: $main-color
   font-size: 18px
   font-weight: 700
   text-transform: uppercase
@@ -818,7 +820,7 @@
   text-decoration: none
 
 .column-item:hover
-  color: #f16d7f
+  color: $main-color
 
 /* Блок Copyrights */
 
@@ -851,7 +853,7 @@
   background-color: #ffffff
 
 .socials__item:hover
-  background-color: #f16d7f
+  background-color: $main-color
 
 .span-socials
   color: #b2b2b2
@@ -878,7 +880,7 @@
   height: 100%
 
 .page-title__name
-  color: #f16d7f
+  color: $main-color
   font-size: 24px
   font-weight: 400
   text-transform: uppercase
@@ -894,11 +896,11 @@
   text-decoration: none
 
 .page-title__link_active
-  color: #f16d7f
+  color: $main-color
   font-weight: 700
 
 .page-title__link:hover
-  color: #f16d7f
+  color: $main-color
   font-weight: 700
 
 /*Block Product*/
@@ -948,7 +950,7 @@
 
 .type-of-collection
   margin-top: 73px
-  color: #f16d7f
+  color: $main-color
   font-size: 14px
   font-weight: 700
   text-transform: uppercase
@@ -1182,7 +1184,7 @@
   padding: 0 12px 0 15px
 
 .like-also__price
-  color: #f16d7f
+  color: $main-color
   font-size: 16px
   font-weight: 700
   text-transform: uppercase
@@ -1269,6 +1271,8 @@
   border: 1px solid #eaeaea
   line-height: 25px
 
+/*-------------------------------*/
+
 .buttons-wrap
   margin-top: 44px
   display: flex
@@ -1280,4 +1284,126 @@
   text-transform: uppercase
   padding: 11px 38px
 
+/*-------------------------------*/
 
+.forms-wrap
+  display: flex
+  justify-content: space-between
+  margin-top: 63px
+
+/*-------------------------------*/
+
+.form-box
+  width: 100% / 3 - 2%
+
+.form-box__title
+  color: #222222
+  font-size: 16px
+  font-weight: 700
+  text-transform: uppercase
+
+.form-box__form
+  margin-top: 22px
+
+.form-box__city
+  color: #b1b1b1
+  font-size: 13px
+  font-weight: 300
+  padding: 11px 12px 14px 18px
+  border: 1px solid #eaeaea
+  display: flex
+  justify-content: space-between
+  position: relative
+
+  &:hover .dropdown-city
+    display: block
+
+.icon-arrow-down_grey
+  color: #b1b1b1
+
+.dropdown-city
+  display: none
+  position: absolute
+  left: -1px
+  top: 41px
+  list-style-type: none
+  border: 1px solid #eaeaea
+  background-color: #ffffff
+  width: 100%
+  z-index: 100
+
+.dropdown-city__item
+  display: flex
+  justify-content: left
+  align-items: center
+  padding: 9px 9px 9px 14px
+
+.choose__dropdown-item:hover
+  background-color: #f8f8f8
+  cursor: pointer
+
+.form-box__input
+  margin-top: 20px
+  border: 1px solid #eaeaea
+  background-color: #ffffff
+  padding: 12px 5px 12px 14px
+  outline: none
+  color: #b1b1b1
+  font-size: 13px
+  font-weight: 300
+  width: 338px
+
+.form-box__input::placeholder
+  color: #b1b1b1
+
+.button_form-box
+  color: #4a4a4a
+  font-size: 11px
+  font-weight: 700
+  text-transform: uppercase
+  padding: 12px
+  margin-top: 23px
+
+/*-------------------------------*/
+
+.form-box__text
+  color: #000000
+  font-size: 14px
+  font-weight: 300
+
+/*-------------------------------*/
+
+.total-wrap
+  height: 214px
+  box-sizing: border-box
+  padding: 40px
+  background-color: #f5f3f3
+  text-transform: uppercase
+  text-align: right
+
+.sub-total
+  color: #4a4a4a
+  font-size: 11px
+  font-weight: 400
+  margin-bottom: 14px
+
+.sub-total__span
+  margin-left: 14px
+
+.grand-total
+  color: #222222
+  font-size: 16px
+  font-weight: 700
+  padding-bottom: 22px
+  border-bottom: 1px solid #e8e8e8
+
+.grand-total__span
+  color: $main-color
+  margin-left: 20px
+
+.button_total-wrap
+  text-transform: uppercase
+  margin-top: 17px
+  padding: 18px 50px
+
+/*-------------------------------*/
