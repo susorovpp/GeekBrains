@@ -1,5 +1,7 @@
 @import "variables"
 
+@import "mixins"
+
 *
   margin: 0
   padding: 0
@@ -26,6 +28,9 @@
   display: flex
   align-items: center
 
+  &__logo
+    margin-right: 37px
+
 .header-right
   display: flex
   align-items: center
@@ -35,36 +40,39 @@
 .logo
   display: flex
   align-items: center
-  color: #222222
   font-size: 27px
-  font-weight: 300
   text-transform: uppercase
   text-decoration: none
-  margin-right: 37px
 
-.logo__img
-  margin-right: 12px
+  &__img
+    margin-right: 12px
 
-.logo__span
-  color: $main-color
-  font-weight: 700
+  &__text_black
+    color: #222222
+    font-weight: 300
+
+  &__text_red
+    color: $main-color
+    font-weight: 700
 
 .header-form
   display: flex
   position: relative
 
-.header-form__browse
-  padding: 9px 9px 9px 15px
-  border-radius: 3px 0 0 3px
-  border: 1px solid #e6e6e6
-  color: #222222
-  font-size: 14px
-  font-weight: 300
-  background-color: #cdcdcc
-  background-image: linear-gradient(to bottom, #f9f9f9 0%, #f5f5f5 100%)
+  &__browse
+    padding: 9px 9px 9px 15px
+    border-radius: 3px 0 0 3px
+    border: 1px solid #e6e6e6
+    color: #222222
+    font-size: 14px
+    font-weight: 300
+    background-color: #cdcdcc
+    background-image: linear-gradient(to bottom, #f9f9f9 0%, #f5f5f5 100%)
 
-.header-form__browse:hover
-  cursor: pointer
+    &:hover
+      background-color: #ffffff
+      background-image: none
+      cursor: pointer
 
 .icon-browse
   color: #a4a4a4
@@ -82,18 +90,18 @@
   display: none
   z-index: 100
 
-.dropdown-browse:before
-  content: ''
-  display: block
-  width: 10px
-  height: 10px
-  background-color: #fff
-  position: absolute
-  top: -6px
-  left: 65px
-  transform: rotate(45deg)
-  border-top: 1px solid #e9e9e9
-  border-left: 1px solid #e9e9e9
+  &:before
+    content: ''
+    display: block
+    width: 10px
+    height: 10px
+    background-color: #fff
+    position: absolute
+    top: -6px
+    left: 65px
+    transform: rotate(45deg)
+    border-top: 1px solid #e9e9e9
+    border-left: 1px solid #e9e9e9
 
 .inner__title
   color: #232323
@@ -159,17 +167,39 @@
   font-size: 15px
   font-weight: 400
   text-decoration: none
+  transition: all .5s
+  outline: none
 
-.button_red
-  background-color: $main-color
-  color: #ffffff
-  border: 1px solid transparent
+  &_white
+    color: $main-color
+    background-color: #ffffff
+    border: 1px solid $main-color
 
-.button_red:hover
-  color: $main-color
-  background-color: #ffffff
-  border: 1px solid $main-color
-  cursor: pointer
+    &:hover
+      background-color: $main-color
+      color: #ffffff
+      cursor: pointer
+
+  &_grey
+    color: #4a4a4a
+    background-color: #ffffff
+    border: 1px solid #eaeaea
+
+    &:hover
+      color: #fff
+      background-color: #4a4a4a
+      cursor: pointer
+
+  &_red
+    background-color: $main-color
+    color: #ffffff
+    border: 1px solid transparent
+
+    &:hover
+      color: $main-color
+      background-color: #ffffff
+      border: 1px solid $main-color
+      cursor: pointer
 
 .icon-arrow-down
   margin-left: 8px
@@ -209,18 +239,26 @@
   z-index: 100
   padding: 5px 19px 20px
 
-.dropdown-basket:before
-  content: ''
-  display: block
-  width: 10px
-  height: 10px
-  background-color: #fff
-  position: absolute
-  top: -6px
-  left: 26px
-  transform: rotate(45deg)
-  border-top: 1px solid #e9e9e9
-  border-left: 1px solid #e9e9e9
+  &:before
+    content: ''
+    display: block
+    width: 10px
+    height: 10px
+    background-color: #fff
+    position: absolute
+    top: -6px
+    left: 26px
+    transform: rotate(45deg)
+    border-top: 1px solid #e9e9e9
+    border-left: 1px solid #e9e9e9
+
+  &__button_checkout
+    margin-top: 32px
+    width: 100%
+
+  &__button_go
+    margin-top: 11px
+    width: 100%
 
 .basket-wrap:hover .dropdown-basket
   display: block
@@ -269,6 +307,9 @@
   margin-left: 50px
   line-height: 85px
 
+  &:hover
+    cursor: pointer
+
 .basket-price
   display: flex
   justify-content: space-between
@@ -277,36 +318,6 @@
   font-size: 16px
   font-weight: 700
   text-transform: uppercase
-
-.button_white
-  color: $main-color
-  background-color: #ffffff
-  border: 1px solid $main-color
-  outline: none
-
-.button_white:hover
-  background-color: $main-color
-  color: #ffffff
-  cursor: pointer
-
-.button_checkout
-  margin-top: 32px
-  width: 100%
-
-.button_grey
-  color: #4a4a4a
-  background-color: #ffffff
-  border: 1px solid #eaeaea
-  outline: none
-
-.button_grey:hover
-  color: #fff
-  background-color: #4a4a4a
-  cursor: pointer
-
-.button_go
-  margin-top: 11px
-  width: 100%
 
 /* Блок Navigation */
 
@@ -459,6 +470,11 @@
 .category-item
   position: relative
   font-weight: 700
+  transition: transform 1s ease-in-out
+
+  &:hover
+    transform: scale(1.03)
+    z-index: 100
 
 .category-item:nth-child(1),
 .category-item:nth-child(4)
@@ -535,9 +551,11 @@
   width: 263px
   position: relative
   margin-bottom: 40px
+  transition: transform .3s ease-in-out
 
 .product-box__item:hover
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16)
+  transform: scale(1.03)
 
 .product-box__card
   text-decoration: none
@@ -584,6 +602,8 @@
 
 .button-add:hover
   box-shadow: 0 0 10px #ffffff
+  -webkit-animation: heartbeat 1.5s ease-in-out infinite both
+          animation: heartbeat 1.5s ease-in-out infinite both
 
 .product-box__item:hover .product-box__add
   display: flex
@@ -712,6 +732,15 @@
   justify-content: center
   align-items: center
 
+  &__button
+    text-decoration: none
+    color: #ffffff
+    font-size: 14px
+    font-weight: 400
+    border-radius: 0 23px 23px 0
+    padding: 12px 21px
+    transition: all .3s
+
 .subscribe-title-box
   color: #222224
   font-weight: 400
@@ -741,16 +770,8 @@
   font-size: 14px
   font-weight: 400
 
-.subscribe-right__input:focus
-  outline: none
-
-.button-subscribe
-  text-decoration: none
-  color: #ffffff
-  font-size: 14px
-  font-weight: 400
-  border-radius: 0 23px 23px 0
-  padding: 13px 21px
+  &:focus
+    outline: none
 
 /* Pagination panel */
 
@@ -851,9 +872,11 @@
   height: 32px
   width: 32px
   background-color: #ffffff
+  transition: transform 1s ease-in-out
 
 .socials__item:hover
   background-color: $main-color
+  transform: rotate(360deg)
 
 .span-socials
   color: #b2b2b2
@@ -1158,8 +1181,12 @@
   justify-content: space-between
   margin-top: 72px
 
-.like-also__item:hover
-  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16)
+.like-also__item
+  transition: transform .3s ease-in-out
+
+  &:hover
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16)
+    transform: scale(1.03)
 
 .like-also__link
   text-decoration: none
@@ -1265,11 +1292,27 @@
   color: #575757
   font-weight: 400
 
+.product-table__quantity
+  position: relative
+
 .product-table__quantity_border
   width: 50px
   height: 26px
   border: 1px solid #eaeaea
   line-height: 25px
+  position: absolute
+  top: 34%
+  left: 30%
+
+.product-table__action
+  position: relative
+
+.icon-close_shopping-cart
+  position: absolute
+  margin-left: 0
+  line-height: 0
+  top: 37%
+  left: 42%
 
 /*-------------------------------*/
 
@@ -1407,3 +1450,172 @@
   padding: 18px 50px
 
 /*-------------------------------*/
+/*Checkout*/
+
+.checkout
+  margin-top: 50px
+
+.spoiler
+  border-bottom: 1px solid #e8e8e8
+  padding-bottom: 79px
+
+  &__title
+    height: 72px
+    line-height: 72px
+    +title(16px, 700, #222222)
+
+.hidden-block__wrap
+  display: flex
+  justify-content: space-between
+  padding-right: 167px
+
+
+.hidden-block
+  padding-left: 35px
+
+  &__title
+    margin-top: 3px
+    +title(13px, 400, #222222)
+
+  &__text
+    margin-top: 10px
+    color: #b3b2b2
+    font-size: 13px
+    font-weight: 400
+
+    &_red
+      color: #ff0d0d
+
+    &_forgot
+      color: #222222
+      font-size: 14px
+      font-weight: 400
+      position: relative
+      top: -34px
+      left: 188px
+
+  &__box
+    margin-top: 33px
+
+  &__button
+    margin-top: 38px
+    color: #4a4a4a
+    font-size: 14px
+    font-weight: 700
+    text-transform: uppercase
+    padding: 17px 55px
+
+    &:hover
+      color: #ffffff
+
+.check-box
+  margin-top: 22px
+  margin-bottom: 33px
+  width: 160px
+  display: flex
+  align-items: center
+  flex-wrap: wrap
+
+  &__label
+    +title(12px, 400, #222222)
+    margin-left: 14px
+    cursor: pointer
+
+.icon-arrow-double
+  color: #b3b2b2
+  font-size: 13px
+  font-weight: 400
+  margin-right: 4px
+
+.input__item
+  margin-top: 27px
+
+.input__title
+  +title(12px, 400, #222222)
+
+.span-star
+  color: #ff0d0d
+  font-size: 17px
+  font-weight: 400
+
+.input__form
+  margin-top: 16px
+  width: 390px
+  height: 45px
+  border: 1px solid #eaeaea
+  box-sizing: border-box
+  padding: 9px 15px
+  outline: none
+  color: #a4a4a4
+  font-size: 14px
+  font-weight: 400
+
+/*Test animation*/
+
+.vibrate-1
+  -webkit-animation: vibrate-1 0.3s linear infinite both
+          animation: vibrate-1 0.3s linear infinite both
+
+@-webkit-keyframes vibrate-1
+  0%
+    -webkit-transform: translate(0)
+            transform: translate(0)
+
+  20%
+    -webkit-transform: translate(-2px, 2px)
+            transform: translate(-2px, 2px)
+
+  40%
+    -webkit-transform: translate(-2px, -2px)
+            transform: translate(-2px, -2px)
+
+  60%
+    -webkit-transform: translate(2px, 2px)
+            transform: translate(2px, 2px)
+
+  80%
+    -webkit-transform: translate(2px, -2px)
+            transform: translate(2px, -2px)
+
+  100%
+    -webkit-transform: translate(0)
+            transform: translate(0)
+
+@-webkit-keyframes heartbeat 
+  from
+    -webkit-transform: scale(1)
+            transform: scale(1)
+    -webkit-transform-origin: center center
+            transform-origin: center center
+    -webkit-animation-timing-function: ease-out
+            animation-timing-function: ease-out
+
+  10%
+    -webkit-transform: scale(0.91)
+            transform: scale(0.91)
+    -webkit-animation-timing-function: ease-in
+            animation-timing-function: ease-in
+
+  17%
+    -webkit-transform: scale(0.98)
+            transform: scale(0.98)
+    -webkit-animation-timing-function: ease-out
+            animation-timing-function: ease-out
+
+  33%
+    -webkit-transform: scale(0.87)
+            transform: scale(0.87)
+    -webkit-animation-timing-function: ease-in
+            animation-timing-function: ease-in
+
+  45%
+    -webkit-transform: scale(1)
+            transform: scale(1)
+    -webkit-animation-timing-function: ease-out
+            animation-timing-function: ease-out
+
+
+/* -------------------------------------- */
+
+
+
