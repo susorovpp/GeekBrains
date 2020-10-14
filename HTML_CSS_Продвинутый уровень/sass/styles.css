@@ -368,6 +368,7 @@
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
+  transition: 0.3s ease-in-out;
 }
 
 .menu__link:hover {
@@ -1039,6 +1040,7 @@
   font-weight: 300;
   text-transform: uppercase;
   text-decoration: none;
+  transition: 0.3s ease-in-out;
 }
 
 .page-title__link_active {
@@ -1656,7 +1658,8 @@
 
 .spoiler {
   border-bottom: 1px solid #e8e8e8;
-  padding-bottom: 79px;
+  list-style: none;
+  outline: none;
 }
 .spoiler__title {
   height: 72px;
@@ -1666,11 +1669,21 @@
   color: #222222;
   text-transform: uppercase;
 }
+.spoiler__title::-webkit-details-marker {
+  display: none;
+}
+.spoiler__title:hover {
+  cursor: pointer;
+}
+.spoiler__title:focus {
+  outline: none;
+}
 
 .hidden-block__wrap {
   display: flex;
   justify-content: space-between;
   padding-right: 167px;
+  margin-bottom: 79px;
 }
 
 .hidden-block {
@@ -1697,8 +1710,13 @@
   font-size: 14px;
   font-weight: 400;
   position: relative;
-  top: -34px;
-  left: 188px;
+  top: -3px;
+  left: 35px;
+  text-decoration: none;
+  transition: color 0.5s ease-in-out;
+}
+.hidden-block__text_forgot:hover {
+  color: #f16d7f;
 }
 .hidden-block__box {
   margin-top: 33px;
@@ -1836,5 +1854,61 @@
   }
 }
 /* -------------------------------------- */
+.product-flex {
+  display: flex;
+  margin-top: 59px;
+}
+
+.sidebar {
+  min-width: 243px;
+}
+.sidebar__item {
+  line-height: 37px;
+}
+.sidebar__item:hover {
+  cursor: pointer;
+}
+.sidebar__item:not(:first-child) {
+  margin-top: 18px;
+}
+.sidebar__item[open] .sidebar__item-title:before {
+  content: "";
+  color: #ef5b70;
+}
+.sidebar__item-title {
+  height: 37px;
+  padding-left: 11px;
+  border-bottom: 1px solid #ebebeb;
+  border-left: 5px solid #ef5b70;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ef5b70;
+  text-transform: uppercase;
+  position: relative;
+}
+.sidebar__item-title::-webkit-details-marker {
+  display: none;
+}
+.sidebar__item-title:focus {
+  outline: none;
+}
+.sidebar__item-title:before {
+  content: "";
+  font-family: "Font Awesome 5 free", sans-serif;
+  color: #6f6e6e;
+  position: absolute;
+  right: 5px;
+}
+.sidebar__list {
+  list-style: none;
+  margin-left: 22px;
+  margin-top: 22px;
+}
+.sidebar__link {
+  color: #6f6e6e;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+}
 
 /*# sourceMappingURL=styles.css.map */

@@ -337,6 +337,7 @@
   font-size: 14px
   font-weight: 700
   text-transform: uppercase
+  transition: .3s ease-in-out
 
 .menu__link:hover
   color: $main-color
@@ -917,6 +918,7 @@
   font-weight: 300
   text-transform: uppercase
   text-decoration: none
+  transition: .3s ease-in-out
 
 .page-title__link_active
   color: $main-color
@@ -1457,18 +1459,28 @@
 
 .spoiler
   border-bottom: 1px solid #e8e8e8
-  padding-bottom: 79px
+  list-style: none
+  outline: none
 
   &__title
     height: 72px
     line-height: 72px
     +title(16px, 700, #222222)
 
+    &::-webkit-details-marker
+      display: none
+
+    &:hover
+      cursor: pointer
+
+    &:focus
+      outline: none
+
 .hidden-block__wrap
   display: flex
   justify-content: space-between
   padding-right: 167px
-
+  margin-bottom: 79px
 
 .hidden-block
   padding-left: 35px
@@ -1491,8 +1503,13 @@
       font-size: 14px
       font-weight: 400
       position: relative
-      top: -34px
-      left: 188px
+      top: -3px
+      left: 35px
+      text-decoration: none
+      transition: color .5s ease-in-out
+
+      &:hover
+        color: $main-color
 
   &__box
     margin-top: 33px
@@ -1617,5 +1634,57 @@
 
 /* -------------------------------------- */
 
+//Page Product
 
+.product-flex
+  display: flex
+  margin-top: 59px
+
+.sidebar
+  min-width: 243px
+
+  &__item
+    line-height: 37px
+
+    &:hover
+      cursor: pointer
+
+    &:not(:first-child)
+      margin-top: 18px
+
+  &__item[open] .sidebar__item-title:before
+    content: '\f0de'
+    color: #ef5b70
+
+  &__item-title
+    height: 37px
+    padding-left: 11px
+    border-bottom: 1px solid #ebebeb
+    border-left: 5px solid #ef5b70
+    +title(14px, 700, #ef5b70)
+    position: relative
+
+    &::-webkit-details-marker
+      display: none
+
+    &:focus
+      outline: none
+
+    &:before
+      content: '\f0d7'
+      font-family: 'Font Awesome 5 free', sans-serif
+      color: #6f6e6e
+      position: absolute
+      right: 5px
+
+  &__list
+    list-style: none
+    margin-left: 22px
+    margin-top: 22px
+
+  &__link
+    color: #6f6e6e
+    font-size: 14px
+    font-weight: 400
+    text-decoration: none
 
