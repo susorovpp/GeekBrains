@@ -359,6 +359,9 @@
 .menu__list {
   position: relative;
 }
+.menu__list_active {
+  border-bottom: 3px solid #ef5b70;
+}
 
 .menu__link {
   text-decoration: none;
@@ -370,7 +373,6 @@
   text-transform: uppercase;
   transition: 0.3s ease-in-out;
 }
-
 .menu__link:hover {
   color: #f16d7f;
   text-decoration: underline;
@@ -1856,6 +1858,7 @@
 /* -------------------------------------- */
 .product-flex {
   display: flex;
+  justify-content: space-between;
   margin-top: 59px;
 }
 
@@ -1909,6 +1912,94 @@
   font-size: 14px;
   font-weight: 400;
   text-decoration: none;
+}
+.sidebar__link:hover {
+  color: #f16d7f;
+  transition: color 0.3s ease-in-out;
+}
+
+.product-wrap {
+  width: 74%;
+}
+
+.product-wrap__top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-item {
+  flex-grow: 1;
+}
+.top-item__header {
+  font-size: 14px;
+  font-weight: 700;
+  color: #6f6e6e;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.trending {
+  width: 169px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  line-height: 26px;
+}
+.trending__link, .trending__separator {
+  color: #6f6e6e;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+.trending__link:hover {
+  color: #f16d7f;
+}
+
+.size {
+  width: 312px;
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
+.option {
+  display: inline-block;
+  padding-left: 25px;
+  margin-right: 29px;
+}
+.option:nth-child(n+5) {
+  margin-top: 12px;
+}
+
+.check {
+  font-size: 14px;
+  font-weight: 400;
+  color: #6f6e6e;
+  width: 24px;
+}
+.check__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+.check__input:checked + .check__box {
+  background: url("../images/checked.svg") no-repeat center;
+  background-size: 9px;
+}
+.check__input:focus + .check__box {
+  background-color: #f16d7f;
+}
+.check__box {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  border: 1px solid #ebebeb;
+  margin-top: 2px;
+  margin-left: -26px;
+  background-color: #ffffff;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -329,6 +329,9 @@
 .menu__list
   position: relative
 
+  &_active
+    border-bottom: 3px solid #ef5b70
+
 .menu__link
   text-decoration: none
   display: block
@@ -339,9 +342,9 @@
   text-transform: uppercase
   transition: .3s ease-in-out
 
-.menu__link:hover
-  color: $main-color
-  text-decoration: underline
+  &:hover
+    color: $main-color
+    text-decoration: underline
 
 .menu-popup
   position: absolute
@@ -1638,7 +1641,10 @@
 
 .product-flex
   display: flex
+  justify-content: space-between
   margin-top: 59px
+
+//Sidebar
 
 .sidebar
   min-width: 243px
@@ -1687,4 +1693,89 @@
     font-size: 14px
     font-weight: 400
     text-decoration: none
+
+    &:hover
+      color: $main-color
+      transition: color .3s ease-in-out
+
+//Product-wrap
+
+.product-wrap
+  width: 74%
+
+.product-wrap__top
+  display: flex
+  justify-content: space-between
+
+//Product-wrap top
+
+.top-item
+  flex-grow: 1
+
+  &__header
+    +title(14px, 700, #6f6e6e)
+    margin-bottom: 25px
+
+.trending
+  width: 169px
+  display: flex
+  justify-content: space-between
+  flex-wrap: wrap
+  line-height: 26px
+
+  &__link,
+  &__separator
+    color: #6f6e6e
+    font-size: 14px
+    font-weight: 400
+    text-decoration: none
+    transition: color .3s ease-in-out
+
+  &__link:hover
+    color: $main-color
+
+.size
+  width: 312px
+  display: flex
+  justify-content: left
+  flex-wrap: wrap
+
+.option
+  display: inline-block
+  padding-left: 25px
+  margin-right: 29px
+
+  &:nth-child(n + 5)
+    margin-top: 12px
+
+.check
+  font-size: 14px
+  font-weight: 400
+  color: #6f6e6e
+  width: 24px
+
+  &__input
+    position: absolute
+    width: 1px
+    height: 1px
+    overflow: hidden
+    clip: rect(0 0 0 0)
+
+    &:checked + .check__box
+      background: url("../images/checked.svg") no-repeat center
+      background-size: 9px
+
+    &:focus + .check__box
+      background-color: #f16d7f
+
+  &__box
+    position: absolute
+    width: 13px
+    height: 13px
+    border: 1px solid #ebebeb
+    margin-top: 2px
+    margin-left: -26px
+    background-color: #ffffff
+
+
 
