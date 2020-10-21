@@ -661,6 +661,10 @@
   flex-direction: column
   justify-content: space-between
 
+  &_product-page
+    flex-direction: row
+    width: 100%
+
 .article__item
   display: flex
   justify-content: space-between
@@ -1711,10 +1715,20 @@
 
 .top-item
   flex-grow: 1
+  font-size: 14px
+  font-weight: 400
+  color: #6f6e6e
 
   &__header
     +title(14px, 700, #6f6e6e)
     margin-bottom: 25px
+
+    &_price
+      margin-bottom: 20px
+
+  &:nth-child(3)
+    margin-left: -55px
+
 
 .trending
   width: 169px
@@ -1734,6 +1748,8 @@
   &__link:hover
     color: $main-color
 
+//---------------------
+
 .size
   width: 312px
   display: flex
@@ -1749,9 +1765,6 @@
     margin-top: 12px
 
 .check
-  font-size: 14px
-  font-weight: 400
-  color: #6f6e6e
   width: 24px
 
   &__input
@@ -1773,9 +1786,229 @@
     width: 13px
     height: 13px
     border: 1px solid #ebebeb
-    margin-top: 2px
+    margin-top: 1px
     margin-left: -26px
     background-color: #ffffff
 
+//---------------------------
+
+.range
+  -webkit-appearance: none
+  appearance: none
+  width: 100%
+  margin-top: 5px
+  padding-bottom: 20px
+
+  &:focus
+    outline: none
+
+  &::-webkit-slider-runnable-track
+    height: 6px
+    border-radius: 3px
+    cursor: pointer
+    background-color: #f0f0f0
+
+  &::-webkit-slider-thumb
+    -webkit-appearance: none
+    height: 14px
+    width: 14px
+    border-radius: 50%
+    background-color: $main-color
+    cursor: pointer
+    margin-top: -4px
+
+//------------------------------
+
+.product-wrap__filter
+  margin-top: 43px
+  background-color: #f3f3f3
+  padding: 10px
+  display: flex
+
+.filter-item
+  display: flex
+  color: #6f6e6e
+  font-size: 14px
+  font-weight: 400
+  margin-right: 10px
+
+  &__name,
+  &__value
+    padding: 8px 10px
+    border: 1px solid #ebebeb
+    background-color: #ffffff
+
+  &__name
+    border-right: none
+
+.filter-item__value_icon
+  margin-left: 11px
+
+//------------------------------------
+
+.product-wrap__content
+  margin-top: 48px
+  display: flex
+  justify-content: space-between
+  flex-wrap: wrap
+
+.content-item
+  display: block
+  text-decoration: none
+  color: #6f6e6e
+  font-size: 13px
+  font-weight: 400
+  text-transform: uppercase
+  width: 263px
+  height: 364px
+  transition: transform .3s ease-in-out
+  position: relative
+
+  &__image
+    width: 263px
+    height: 280px
+
+  &__title
+    margin-top: 19px
+    padding-left: 15px
+
+  &__info
+    display: flex
+    justify-content: space-between
+    padding: 0 13px
+
+  &__price
+    color: $main-color
+    margin-top: 17px
+
+  &__stars
+    margin-top: 20px
+
+  &:not(:nth-child(-n + 3))
+    margin-top: 38px
+
+  &:hover
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16)
+    transform: scale(1.03)
+
+  &:hover .content-item__image
+    filter: brightness(0.3)
+
+  &:hover .content-item__button-wrap
+    display: flex
+
+  &__button-wrap
+    position: absolute
+    top: 139px
+    left: 53%
+    transform: translate(-50%, -50%)
+    display: none
+    justify-content: space-between
+    flex-wrap: wrap
+
+
+  &__button
+    border-radius: 3px
+    border: 1px solid #ffffff
+    padding: 7px
+    background-color: transparent
+    display: inline-flex
+    align-items: center
+    justify-content: center
+
+    &:not(:first-child)
+      margin-top: 8px
+
+    &_top
+      padding: 11px
+
+    &_bottom
+      width: 57px
+      padding: 11px 17px
+
+    &:hover
+      cursor: pointer
+      box-shadow: 0 0 10px #ffffff
+      -webkit-animation: heartbeat 1.5s ease-in-out infinite both
+      animation: heartbeat 1.5s ease-in-out infinite both
+
+.button-name
+  color: #ffffff
+  font-size: 13px
+  font-weight: 700
+
+.icon-basket-pr
+  margin-right: 8px
+
+//-----------------------------
+
+.product-wrap__bottom
+  display: flex
+  justify-content: space-between
+  margin-top: 43px
+
+.product-wrap_button
+  border-radius: 3px
+  padding: 13px 45px
+  font-weight: 700
+
+.pagination__box
+  border-radius: 3px
+  border: 1px solid #ebebeb
+  background-color: #ffffff
+  padding: 11px 3px 10px 15px
+
+.pagination
+  border: none
+  padding: 0
+  margin: 0
+  display: flex
+  list-style: none
+
+.previous-off
+  margin-right: 16px
+  font-size: 16px
+  font-weight: 700
+  color: #c4c4c4
+
+.link-pagination
+  border: none
+  padding: 0
+  margin: 0 13px 0 0
+  font-size: 16px
+  font-weight: 700
+  color: #c4c4c4
+  text-decoration: none
+
+  &_active
+    color: #ef5b70
+
+.next__span
+    color: #ef5b70
+
+.product-bottom
+  height: 341px
+  margin: 110px auto -97px auto
+  background-color: #222224
+  width: 1617px
+
+
+  &__box
+    background-color: #222224
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    padding: 89px 0 115px 0
+
+  &__item
+    width: 309px
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+  &__info
+    color: #fbfbfb
+    text-align: center
+    margin-top: 32px
 
 
