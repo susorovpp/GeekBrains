@@ -82,11 +82,18 @@ x = 5
 
 /*5 Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation),
 где arg1, arg2 – значения аргументов, operation – строка с названием операции. В зависимости
-от
-переданного значения операции (использовать switch) выполнить одну из арифметических
-операций
-(использовать функции из задания 4) и вернуть полученное значение.*/
+от переданного значения операции (использовать switch) выполнить одну из арифметических
+операций (использовать функции из задания 4) и вернуть полученное значение.*/
     function mathOperation(arg1, arg2, operation) {
+        if (operation !== '+' || operation !== '-' || operation !== '*' || operation !== '/' ) {
+            console.log('Ошибка! Вы ввели неверное название операции. Возможно применить следующие операторы: ' +
+                '+, -, *, /');
+            return;
+        } else if (!isNaN(arg1) && !isNaN(arg2)) {
+            console.log('Ошибка! Пожалуйста, введите число');
+            return;
+        }
+
         switch (operation) {
             case '+':
                 return sum(arg1, arg2);
@@ -113,28 +120,42 @@ x = 5
 верное окончание в слове "рубль". Для получения верного склонения слова (любого слова с
 числом) вам необходимо создать функцию.*/
 
-    const askMoneyQuantity = () => {
-        const num = prompt('Введите целое число');
+    // const askMoneyQuantity = () => {
+    //     const str = Number(prompt('Введите целое число'));
+    //
+    //     if (isNaN(str)) {
+    //         console.log('Ошибка! Пожалуйста, введите целое число');
+    //         return;
+    //     }
+    //
+    //     if (str == 1 || (str > 20 && str % 10 === 1)) {
+    //         alert(`Ваша сумма в ${str} рубль успешно зачислена.`);
+    //         return;
+    //     } else if ((str >= 2 && str <= 4) || (str > 20 && str % 10 >= 2 && str % 10 <= 4)) {
+    //         alert(`Ваша сумма в ${str} рубля успешно зачислена.`);
+    //         return;
+    //     } else {
+    //         alert(`Ваша сумма в ${str} рублей успешно зачислена.`);
+    //         return;
+    //     }
+    // }
 
-        switch (num[num.length - 1]) {
-            case '0':
-            case '5':
-            case '6':
-            case '7':
-            case '8':
-            case '9':
-                alert(`Ваша сумма в ${num} рублей успешно зачислена.`)
-                return;
+    const amount = parseInt(prompt('Введите сумму'));
+    const correctWord = declinationOfNumber(amount, 'рубль', 'рубля', 'рублей');
+    console.log(`Ваша сумма в ${amount} ${correctWord} успешно зачислена!`);
 
-            case '1':
-                alert(`Ваша сумма в ${num} рубль успешно зачислена.`)
-                return;
+    function declinationOfNumber(count, one, two, five) {
+        const n = Math.abs(count) % 100;
+        const n10 = n % 10;
 
-            case '2':
-            case '3':
-            case '4':
-                alert(`Ваша сумма в ${num} рубля успешно зачислена.`)
-                return;
+        if (n >= 5 && n <= 20) {
+            return five;
+        } else if (n10 > 1 && n10 < 5) {
+            return two;
+        } else if (n10 === 1) {
+            return one;
+        } else {
+            return five;
         }
     }
 </script>

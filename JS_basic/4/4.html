@@ -1,0 +1,371 @@
+<meta charset="UTF-8">
+<script>
+    "use strict";
+
+    /*1 Написать функцию, преобразующую число в объект. Передавая на вход число в диапазоне [0,
+        999],
+        мы должны получить на выходе объект, в котором в соответствующих свойствах описаны
+    разряды числа:
+        - единицы (в свойстве firstDigit)
+    - десятки (в свойстве secondDigit)
+    - сотни (в свойстве thirdDigit)
+    Например, для числа 45 мы должны получить следующий объект:
+        ```
+        {
+        firstDigit: 5,
+        secondDigit: 4,
+        thirdDigit: 0,
+        }
+        ```
+    Если число было передано вне [0, 999] диапазона, не целое число или вообще не число,
+        необходимо выдать соответствующее сообщение с помощью console.log и вернуть пустой объект.*/
+
+    const getObject = (num) => {
+        const digits = {};
+
+        if (num < 0 || num > 999) {
+            console.log('Ошибка! Введите число в диапазоне [0, 999]');
+            return console.log(digits);
+        }
+
+        if (!Number.isInteger(num) || isNaN(num)) {
+            console.log('Ошибка! Введите целое число')
+            return console.log(digits);
+        }
+
+        digits.firstDigit = num % 10;
+        digits.secondDigit = Math.floor(num / 10 % 10);
+        digits.thirdDigit = Math.floor(num / 100);
+
+        return console.log(digits);
+    }
+    /*2*. Для игры, реализованной на уроке (бродилка), добавить возможность ходить по диагонали
+    цифрами 1, 3, 7, 9
+    Также необходимо сделать так, чтобы пользователь не мог совершить шаг в стенку, т.е. при
+    направлении в стенку
+    игрок оставался на том же месте где стоял.*/
+
+    const settings = {
+        rowsCount: 10,
+        colsCount: 10,
+        startPositionX: 0,
+        startPositionY: 0
+    };
+
+    const player = {
+        x: null,
+        y: null,
+
+        init(startX, startY) {
+            this.x = startX;
+            this.y = startY;
+        },
+
+        move(nextPoint) {
+            this.x = nextPoint.x;
+            this.y = nextPoint.y;
+        },
+
+        getNextPosition(direction) {
+
+            switch (direction) {
+                case 1:
+                    nextPosition.y += 1;
+                    nextPosition.x -= 1;
+                    break;
+                case 2:
+                    nextPosition.y += 1;
+                    nextPosition.x = player.x;
+                    break;
+                case 3:
+                    nextPosition.y += 1;
+                    nextPosition.x += 1;
+                    break;
+                case 4:
+                    nextPosition.x -= 1;
+                    nextPosition.y = player.y;
+                    break;
+                case 6:
+                    nextPosition.x += 1;
+                    nextPosition.y = player.y;
+                    break;
+                case 7:
+                    nextPosition.y -= 1;
+                    nextPosition.x -= 1;
+                    break;
+                case 8:
+                    nextPosition.y -= 1;
+                    nextPosition.x = player.x;
+                    break;
+                case 9:
+                    nextPosition.y -= 1;
+                    nextPosition.x += 1;
+                    break;
+            }
+
+            return nextPosition;
+        }
+    };
+
+    const game = {
+        settings,
+        player,
+
+        run() {
+            this.player.init(this.settings.startPositionX, this.settings.startPositionY);
+            while (true) {
+                this.render();
+
+                const direction = this.getDirection();
+
+                if (direction === -1) {
+                    alert('До свидания!');
+                    return;
+                }
+
+                const nextPoint = this.player.getNextPosition(direction);
+
+                if (this.canPlayerMakeStep(nextPoint)) {
+                    this.player.move(nextPoint);
+                }
+
+            }
+        },
+
+        render() {
+            let map = '';
+
+            for (let row = 0; row < this.settings.rowsCount; row += 1) {
+                for (let col = 0; col < this.settings.colsCount; col += 1) {
+                    if (this.player.y === row && this.player.x === col) {
+                        map += 'o ';
+                    } else {
+                        map += 'x ';
+                    }
+                }
+                map += '\n';
+            }
+
+            console.clear();
+            console.log(map);
+        },
+
+        getDirection() {
+            const availableDirection = [-1, 1, 2, 3, 4, 6, 7, 8, 9];
+
+            while (true) {
+                const direction = parseInt(prompt('Введите число, куда Вы хотите переместиться, -1 для выхода.'));
+
+                if (!availableDirection.includes(direction)) {
+                    alert(`Для перемещения необходимо ввести одно из чисел: ${availableDirection.join(', ')}.`);
+                    continue;
+                }
+
+                return direction;
+            }
+        },
+
+        canPlayerMakeStep(nextPoint) {
+            return !((nextPoint.x < 0 || nextPoint.x > settings.colsCount - 1) ||
+                (nextPoint.y < 0 || nextPoint.y > settings.rowsCount - 1));
+
+        },
+    }
+
+    const nextPosition = {
+        x: player.x,
+        y: player.y
+    };
+
+    game.run()
+
+    /*3. На базе игры (приняв за пример), созданной на уроке, реализовать игру «Кто хочет стать миллионером?».
+    Т.е. у вас должен быть главный объект содержащий всю логику игры, который будет иметь методы, например
+    метод run, возможно метод init и т.д. В игре должны быть заранее подготовлены список вопросов и ответов
+    (как минимум 5 вопросов). Игра должна приветствовать пользователя, после чего задавать вопросы пользователю и
+    предлагать варианты ответов в виде теста, например: Сколько букв в слове "привет":
+        a. Пять.
+        b. Шесть.
+        c. Семь.
+        d. Куда я попал?
+    Проверять правильный вариант выбрал пользователь или нет, необходимо вести счет. По окончании игры, когда было
+    задано 5 вопросов, вы должны сообщить пользователю его счет и предложить сыграть снова. Также должна быть
+    возможность выхода из игры заранее, если пользователю надоело играть.*/
+
+    /**
+     *
+     * @type {object[]} массив с объектами вопросов
+     */
+    const questions = [
+        {
+            text: 'Откуда сотрудники офисов наливают в чашки воду?',
+            variants: {
+                'a': 'из принтера',
+                'b': 'из сканера',
+                'c': 'из степлера',
+                'd': 'из кулера',
+            },
+            correctAnswerIndex: 'd',
+        },
+        {
+            text: 'Что построил Джек в стихотворении, переведенным с английского Маршаком?',
+            variants: {
+                'a': 'маршрут',
+                'b': 'график',
+                'c': 'дом',
+                'd': 'коммунизм',
+            },
+            correctAnswerIndex: 'c',
+        },
+        {
+            text: 'Что может возникнуть на шахматной доске?',
+            variants: {
+                'a': 'вечный шах',
+                'b': 'вечный мат',
+                'c': 'вечный зов',
+                'd': 'вечный двигатель',
+            },
+            correctAnswerIndex: 'a',
+        },
+        {
+            text: 'Что такое каршеринг?',
+            variants: {
+                'a': 'секонд-хенд',
+                'b': 'напольный светильник',
+                'c': 'брачный танец вороны',
+                'd': 'аренда автомобиля',
+            },
+            correctAnswerIndex: 'd',
+        },
+        {
+            text: 'Как иногда сокращают имя Сергей?',
+            variants: {
+                'a': 'Серый',
+                'b': 'Бурый',
+                'c': 'Малиновый',
+                'd': 'Вишневый',
+            },
+            correctAnswerIndex: 'a',
+        },
+    ];
+
+    const game = {
+      questions,
+      scoreCount: null,
+      questionIndex: null,
+
+        /**
+         * Инициализация игры
+         */
+        init() {
+            this.scoreCount = 0;
+            this.questionIndex = 0;
+        },
+
+        /**
+         * Запуск игры
+         */
+        run() {
+            while (true) {
+                alert('Добро пожаловать в игру "Кто хочет стать миллионером!"');
+                this.init();
+
+                while (this.questionIndex < 5) {
+                    alert (`Вопрос номер ${this.questionIndex + 1}`);
+                    this.getCurrentQuestionString(this.questionIndex);
+
+                    const userAnswer = this.getAnswer();
+
+                    if (this.validateAnswer(userAnswer) && this.isAnswerCorrect(userAnswer)) {
+                        alert('Поздравляю!!! Это правильный ответ!');
+                        this.scoreCount += 1;
+                    } else if (this.userWantExit(userAnswer)) {
+                        return alert('До свидания');
+                    } else if (this.validateAnswer(userAnswer) && !this.isAnswerCorrect(userAnswer)) {
+                        alert('К сожалению это не правильный ответ. Не расстраивайтесь!');
+                    } else {
+                        const availableAnswers = ['a', 'b', 'c', 'd'];
+                        alert(`К сожалению это не правильный ответ. Возможные варианты ответов: ` +
+                            `${availableAnswers.join(', ')}`);
+                    }
+
+                    this.questionIndex += 1;
+                }
+
+                alert(`Поздравляю - игра завершена! Количество правильных ответов: ${this.scoreCount}.`)
+
+                if (!confirm('Хотите сыграть еще?')) {
+                    return alert('До свидания!');
+                }
+
+                this.init();
+            }
+        },
+
+        /**
+         * Получаем ответ от пользователя
+         * @returns {string} строка ответа пользователя
+         */
+        getAnswer() {
+            return prompt('Введите вариант ответа, -1 для выхода.');
+        },
+
+        /**
+         * Возвращает строку с текущим вопросом и вариантами ответов
+         * @returns {string} строку с текущим вопросом и вариантами ответов
+         */
+        getCurrentQuestionString(index) {
+            const question = this.questions[index];
+            let str = `${question.text}\n\n`;
+
+            for (const key in question.variants) {
+                str += `${key} - ${question.variants[key]}\n`;
+            }
+
+            return alert(str);
+        },
+
+        /**
+         * Проверяет ответ пользователя на корректность ввода
+         * @param userAnswer Ответ пользователя
+         * @returns {boolean} true, если пользователь ввел корректные данные, иначе false
+         */
+        validateAnswer(userAnswer) {
+            const availableAnswers = ['a', 'b', 'c', 'd'];
+
+            return availableAnswers.includes(userAnswer);
+        },
+
+        /**
+         * Проверяет ввел ли пользователь вместо ответа информацию для выхода из игры
+         * @param userAnswer Ответ пользователя
+         * @returns {boolean} true, если пользователь хотел выйти, иначе false
+         */
+        userWantExit(userAnswer) {
+            return userAnswer === '-1';
+        },
+
+        /**
+         * Проверяет является ли ответ, переданный в функцию, верным
+         * @param userAnswer Ответ пользователя
+         * @returns {boolean} true, если пользователь верный, иначе false
+         */
+        isAnswerCorrect(userAnswer) {
+            const correctAnswer = questions[this.questionIndex].correctAnswerIndex;
+
+            return correctAnswer === userAnswer;
+        },
+
+        /**
+         * Проверяет закончилась ли игра
+         * @returns {boolean} true, если было задано 5 вопросов, иначе false
+         */
+        isGameOver() {
+            return this.questionIndex === 5;
+        },
+
+    };
+
+    game.run();
+
+</script>
