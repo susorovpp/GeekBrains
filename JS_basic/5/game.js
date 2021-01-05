@@ -130,7 +130,8 @@ const chess = {
     // Метод просто для вывода фигур.
     renderFigure() {
         
-        for (let i = 0; i < 32; i += 1) {
+        for (let i = 0; i < this.figures.length; i += 1) {
+            console.log(i)
             // Берем одну фигуру
             const figure = this.figures[i];
             // Получаем имя фигуры и цвет в одну строку
