@@ -30,13 +30,11 @@ const gallery = {
         }
 
         this.openImage(event.target.dataset.full_image_url);
-        this.openedImageEl = document.querySelector(`.${this.settings.openedImageClass}`);
-        this.getNextImage()
+        this.openedImageEl = event.target;
     },
 
     openImage(src) {
         this.getScreenContainer().querySelector(`.${this.settings.openedImageClass}`).src = src;
-
     },
 
     getScreenContainer() {
@@ -57,12 +55,22 @@ const gallery = {
         imageArrowNext.classList.add(this.settings.openedImageBtnNext);
         imageArrowNext.src = this.settings.openedImageBtnNextSrc;
         imageArrowNext.alt = 'Вперед';
+        imageArrowNext.addEventListener('click', () => {
+            this.openedImageEl = this.getNextImage();
+            this.openImage(this.openedImageEl.dataset.full_image_url);
+        });
+
         galleryWraperElement.appendChild(imageArrowNext);
 
         const imageArrowBack = new Image();
         imageArrowBack.classList.add(this.settings.openedImageBtnBack);
         imageArrowBack.src = this.settings.openedImageBtnBackSrc;
         imageArrowBack.alt = 'Назад';
+        imageArrowBack.addEventListener('click', () => {
+            this.openedImageEl = this.getPrevImage();
+            this.openImage(this.openedImageEl.dataset.full_image_url);
+        });
+
         galleryWraperElement.appendChild(imageArrowBack);
 
         const galleryScreenElement = document.createElement('div');
@@ -95,11 +103,14 @@ const gallery = {
     getNextImage() {
         const parentEl = this.openedImageEl.parentElement;
         const nextEl = this.openedImageEl.nextElementSibling;
-        console.log(nextEl);
 
+        return nextEl === null ? parentEl.firstElementChild : nextEl;
     },
 
     getPrevImage() {
+        const parentEl = this.openedImageEl.parentElement;
+        const prevtEl = this.openedImageEl.previousElementSibling;
 
+        return prevtEl === null ? parentEl.lastElementChild : prevtEl;
     },
 };
