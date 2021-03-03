@@ -95,10 +95,29 @@ const gallery = {
         galleryWraperElement.classList.add(this.settings.openedImageWrapperClass);
 
         //Создаем кнопку переключения на следующую картинку с помощью метода createBtnArrowNext и добавляем ее в контейнер-обертку
-        galleryWraperElement.appendChild(this.createBtnArrowNext());
-        //Создаем кнопку переключения на предыдущую картинку с помощью метода    createBtnArrowPrev и добавляем ее в контейнер-обертку
-        galleryWraperElement.appendChild(this.createBtnArrowPrev());
+        const imageArrowNext = new Image();
+        imageArrowNext.classList.add(this.settings.openedImageBtnNext);
+        imageArrowNext.src = this.settings.openedImageBtnNextSrc;
+        imageArrowNext.alt = 'Вперед';
 
+        galleryWraperElement.appendChild(imageArrowNext);
+
+        imageArrowNext.addEventListener('click', () => {
+            this.openedImageEl = this.getNextImage();
+            this.openImage(this.openedImageEl.dataset.full_image_url);
+        });
+        //Создаем кнопку переключения на предыдущую картинку с помощью метода    createBtnArrowPrev и добавляем ее в контейнер-обертку
+        const imageArrowBack = new Image();
+        imageArrowBack.classList.add(this.settings.openedImageBtnBack);
+        imageArrowBack.src = this.settings.openedImageBtnBackSrc;
+        imageArrowBack.alt = 'Назад';
+
+        galleryWraperElement.appendChild(imageArrowBack);
+
+        imageArrowBack.addEventListener('click', () => {
+            this.openedImageEl = this.getPrevImage();
+            this.openImage(this.openedImageEl.dataset.full_image_url);
+        });
         // Создаем контейнер занавеса, ставим ему класс и добавляем в контейнер-обертку
         const galleryScreenElement = document.createElement('div');
         galleryScreenElement.classList.add(this.settings.openedImageScreenClass);
@@ -131,35 +150,6 @@ const gallery = {
     },
 
     /**
-     * Создает кнопку для переключения следующей картинки, добавляет картинку стрелку, src, описание. Также добавляется обрабочик события клика по кнопке с использованием метода getNextImage
-     */
-    createBtnArrowNext() {
-        const imageArrowNext = new Image();
-        imageArrowNext.classList.add(this.settings.openedImageBtnNext);
-        imageArrowNext.src = this.settings.openedImageBtnNextSrc;
-        imageArrowNext.alt = 'Вперед';
-
-        imageArrowNext.addEventListener('click', () => {
-            this.openedImageEl = this.getNextImage();
-            this.openImage(this.openedImageEl.dataset.full_image_url);
-        });
-    },
-
-    /**
-     * Создает кнопку для переключения предыдущей картинки, добавляет картинку стрелку, src, описание. Также добавляется обрабочик события клика по кнопке с использованием метода getPrevImage
-     */
-    createBtnArrowPrev() {
-        const imageArrowBack = new Image();
-        imageArrowBack.classList.add(this.settings.openedImageBtnBack);
-        imageArrowBack.src = this.settings.openedImageBtnBackSrc;
-        imageArrowBack.alt = 'Назад';
-        
-        imageArrowBack.addEventListener('click', () => {
-            this.openedImageEl = this.getPrevImage();
-            this.openImage(this.openedImageEl.dataset.full_image_url);
-        });
-    },
-    /**
      * Вовзращает следующий элемент (картинку) от открытой или первую картинку в контейнере если текущая открытая картинки последняя
      * @returns {Element} следующую картинку от текущей открытой
      */
@@ -167,7 +157,7 @@ const gallery = {
         const parentEl = this.openedImageEl.parentElement;
         const nextEl = this.openedImageEl.nextElementSibling;
 
-        return nextEl === null ? parentEl.firstElementChild : nextEl;
+        return nextEl ? nextEl : parentEl.firstElementChild;
     },
 
     /**
@@ -178,7 +168,7 @@ const gallery = {
         const parentEl = this.openedImageEl.parentElement;
         const prevtEl = this.openedImageEl.previousElementSibling;
 
-        return prevtEl === null ? parentEl.lastElementChild : prevtEl;
+        return prevtEl ? prevtEl : parentEl.lastElementChild;
     },
 };
 

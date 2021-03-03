@@ -9,7 +9,9 @@ const basket = {
     countEl: null,
     priceEl: null,
 
-    init(settings = {}) {
+    init(userSettings = {}) {
+        Object.assign(this.settings, userSettings);
+
         this.countEl = document.querySelector(this.settings.countSelector);
         this.priceEl = document.querySelector(this.settings.priceSelector);
         
@@ -40,7 +42,7 @@ const basket = {
     },
 
     add(goodName, goodPrice) {
-        this.goods.push({ ['price']: +goodPrice, ['name']: goodName})
+        this.goods.push({ price: +goodPrice, name: goodName})
     },
 };
 
