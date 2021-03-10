@@ -304,29 +304,13 @@ const snake = {
     // Возвращаем точку, где окажется голова змейки в зависимости от направления.
     switch (this.direction) {
       case 'up':
-        if (firstPoint.y === 0) {
-          return {x: firstPoint.x, y: this.maxY};
-        } else {
-          return {x: firstPoint.x, y: firstPoint.y - 1};
-        }
+        return {x: firstPoint.x, y: firstPoint.y === 0 ? this.maxY : firstPoint.y - 1};
       case 'right':
-        if (firstPoint.x === this.maxX) {
-          return {x: 0, y: firstPoint.y};
-        } else {
-          return {x: firstPoint.x + 1, y: firstPoint.y};
-        }
+        return {x: firstPoint.x === this.maxX ? 0 : firstPoint.x + 1, y: firstPoint.y};
       case 'down':
-        if (firstPoint.y === this.maxX) {
-          return {x: firstPoint.x, y: 0};
-        } else {
-          return {x: firstPoint.x, y: firstPoint.y + 1};
-        }        
+        return {x: firstPoint.x, y: firstPoint.y === this.maxX ? 0 : firstPoint.y + 1};      
       case 'left':
-        if (firstPoint.x === 0) {
-          return {x: this.maxX, y: firstPoint.y};
-        } else {
-          return {x: firstPoint.x - 1, y: firstPoint.y};
-        }
+        return {x: firstPoint.x === 0 ? this.maxX : firstPoint.x - 1, y: firstPoint.y};
     }
   },
 
