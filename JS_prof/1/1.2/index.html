@@ -9,6 +9,7 @@
 <script src="lesson1.js"></script>
 <script src="MenuItem.js"></script>
 <script src="Menu.js"></script>
+<script src="SubMenu.js"></script>
 <script>
     window.onload = () => {
         // DOM ready
@@ -18,9 +19,16 @@
             new MenuItem('/', 'Home'),
             new MenuItem('/blog', 'Blog'),
             new MenuItem('/services', 'Services'),
+            new SubMenu('me', 'me', [
+                new MenuItem('/', 'About'),
+                new MenuItem('/products', 'Products'),
+                new MenuItem('/services', 'Services')
+            ], '/services', 'Services')
             // new SubMenu('me', 'me', [])
         ]);
+        console.log(menu);
         menuBlock.innerHTML = menu.render();
+        menu.createRemoveButton();
     }
 </script>
 </body>
