@@ -66,7 +66,7 @@
                 </label>
             </fieldset>
         </fieldset>
-        <input type="submit" value="Собрать бургер" class="btn">
+        <button class="btn">Собрать бургер</button>
         <div class="info">
             <p>Итоговая стоимость: <span id="totalPrice"></span></p>
             <p>Количество калорий: <span id="totalCal"></span></p>
@@ -79,8 +79,8 @@
         submit.addEventListener('click', (event) => {
             event.preventDefault();
             
-            let burger = new calculateCalAndPrice();
-            burger.render()
+            const burger = new calculateCalAndPrice();
+            burger.visual()
         });
     </script>
 </body>

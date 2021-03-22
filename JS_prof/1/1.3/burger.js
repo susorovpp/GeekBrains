@@ -17,11 +17,12 @@ class calculateCalAndPrice {
     /**
      * Метод, который выводит количество калорий и цену собранного бургера
      */
-    render() {
-        // Вношу все элементы в свойство items
-        this.getInputElements();
-        // Вношу cal и price в свойства класса
-        this.getCalAndPrice();
+    visual() {
+        // Устанавливаю элементы input в свойство items
+        this.__setInputElements(this.__getInputElements());
+        // Устанавливаю сумму калорий и стоимость в свойства класса
+        this.__setCal(this.__getCal(this.items));
+        this.__setPrice(this.__getPrice(this.items));
         // Нахожу элементы, в которые нужно внести установленные значения свойств cal и price
         const totalCal = document.getElementById('totalCal');
         const totalPrice = document.getElementById('totalPrice');
@@ -30,32 +31,48 @@ class calculateCalAndPrice {
         totalPrice.innerText = this.price;
     }
     /**
-     * Метод выполняет поиск всех input элементов, формирование в виде массива и записывает найденный массив в свойство items
+     * Метод выполняет поиск всех input элементов, формирование в виде массива и фильтрацию input элементов со статусом checked = true
+     * @returns {Array} возвращает массив всех input элементов
      */
-    getInputElements() {
+    __getInputElements() {
         // Получаю dom-элементы input
         const inputElements = Array.from(document.querySelectorAll('input'));
-        // Удаляю последний элемент, т.к. это кнопка "Собрать бургер"
-        inputElements.splice(inputElements.length - 1, 1);
-        // Сортировка массива - выбираются только те элементы, у которых параметр checked = true
-        const inputsElementsChecked = inputElements.filter((input) => input.checked === true);
-        // Устанавливаю найденный массив в свойство items
-        this.items = inputsElementsChecked;
+        // Возвращаю отсортированный массив - выбираются только те элементы, у которых параметр checked = true
+        return inputElements.filter((input) => input.checked === true);
     }
     /**
-     * Метод подсчитывает количество калорий и стоимость собранного бургера, а также устанавливает калории и стоимость в свойства класса
+     * Метод метод устанавливает входящий массив в свойство items
+     * @param {Array} inputElements массив input элементов
      */
-    getCalAndPrice() {
-        // Устанавливаю начальное значение для суммы cal и price
-        let sumCal = 0;
-        let sumPrice = 0;
-        // Создаю цикл для подсчета калорий и стоимости бургера всех элементов items с выделением значений из атрибутов data
-        for (let i = 0; i < this.items.length; i++) {
-            sumCal += +this.items[i].dataset.cal;
-            sumPrice += +this.items[i].dataset.price;
-        }
-        // Устанавливаю полученную сумму калорий и стоимость в свойства класса cal и price
-        this.cal = sumCal;
-        this.price = sumPrice;
+    __setInputElements(inputElements) {
+        this.items = inputElements;
+    }
+    /**
+     * Метод извлекает сумму калорий из передаваемого массива элементов input
+     * @param {Array} items массив input элементов
+     */
+    __getCal(items) {
+        return items.reduce((sum, item) => sum + Number(item.dataset.cal), 0);
+    }
+    /**
+     * Метод извлекает суммарную стоимость из передаваемого массива элементов input
+     * @param {Array} items массив input элементов
+     */
+    __getPrice(items) {
+        return items.reduce((sum, item) => sum + Number(item.dataset.price), 0);
+    }
+    /**
+     * Метод устанавливает калории в свойства класса
+     * @param {Number} cal количество каллорий
+     */
+    __setCal(cal) {
+        this.cal = cal;
+    }
+    /**
+     * Метод устанавливает калории в свойства класса
+     * @param {Number} price стоимость
+     */
+    __setPrice(price) {
+        this.price = price;
     }
 }
