@@ -16,8 +16,10 @@ class Menu {
         return result
     }
     remove() {
-        const menuBlock = document.getElementById(`${this.id}`);
-        menuBlock.remove();
+        const menuBlock = document.getElementById(this.id);
+        if (menuBlock) {
+            menuBlock.remove();
+        }
     }
     createRemoveButton() {
         const buttonDelete = document.createElement('button');
