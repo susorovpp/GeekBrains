@@ -69,19 +69,33 @@ const gallery = {
         document.querySelector(`.${this.settings.openedImageWrapperClass}`).remove();
     },
 
+    // ES5
+    // getJsonObject(name) {
+    //     const xhr = new XMLHttpRequest();
+    //     xhr.open('GET', 'gallery.json', true);
+    //     xhr.onreadystatechange = () => {
+    //         if (xhr.readyState === 4 && xhr.status === 200) {
+    //             JSON.parse(xhr.responseText).forEach(el => {
+    //                 if (el.name === name) {
+    //                     this.openImage(el.src);
+    //                     document.querySelector(`.${this.settings.openedImageClass}`).setAttribute('alt', el.alt);
+    //                 }
+    //             })
+    //         }
+    //     };
+    //     xhr.send();
+    // },
+    // ES6
     getJsonObject(name) {
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', 'gallery.json', true);
-        xhr.onreadystatechange = () => {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                JSON.parse(xhr.responseText).forEach(el => {
+        fetch('gallery.json')
+            .then(result => result.json())
+            .then(objects => {
+                objects.forEach(el => {
                     if (el.name === name) {
                         this.openImage(el.src);
                         document.querySelector(`.${this.settings.openedImageClass}`).setAttribute('alt', el.alt);
                     }
-                })
-            }
-        };
-        xhr.send();
-    },
+                });
+            })
+    }
 };
