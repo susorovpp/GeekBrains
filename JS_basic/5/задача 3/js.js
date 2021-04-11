@@ -1,4 +1,4 @@
-"use strict";
+id"use strict";
 
 const form = document.querySelector('#form');
 const userName = document.querySelector('#name');

@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#form {
+    margin: 25px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+legend {
+    font-weight: 700;
+}
+
+.wrap {
+    height: 50px;
+    margin-bottom: 25px;
+}
+
+input {
+    width: 450px;
+    padding: 5px;
+}
+
+#text {
+    height: 50px;
+    width: 458px;
+}
+
+#btn {
+    width: 464px;
+    margin: 25px 0;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin: 5px;
+}
+
+.failure {
+    border: 2px solid red;
+    border-radius: 2px;
+}
+
+.success {
+    border: 2px solid rgba(113, 240, 113, 0.637);
+    border-radius: 2px;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="#" id="form">
+        <fieldset id="fieldset">
+            <legend>Форма обратной связи</legend>
+            <div class="wrap">
+                <label for="name">Имя</label>
+                <input type="text" id="name" placeholder="Иван">
+            </div>
+            <div class="wrap">
+                <label for="phone">Телефон</label>
+                <input type="text" id="phone" placeholder="+7(000)000-0000">
+            </div>
+            <div class="wrap">
+                <label for="mail">E-mail</label>
+                <input type="text" id="mail" placeholder="mymail@mail.ru">
+            </div>
+            <textarea type="text" id="text" placeholder="Текст"></textarea>
+            <input type="submit" placeholder="Отправить" id="btn">
+        </fieldset>
+    </form>
+    <script src="js.js"></script>
+    <script>
+        window.onload = () => {
+            document.getElementById('form').addEventListener('submit', () => {
+                event.preventDefault();
+                const form = new Form(/^[a-zа-яё]+$/gi, /\+7\(\d{3}\)\d{3}-\d{4}/g, /[\w.-]+@\w+\.ru|com/gi);
+                form.init();
+            })
+        }
+    </script>
+</body>
+</html>
